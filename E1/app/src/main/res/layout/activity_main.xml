@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView2"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/apple_sd_gothic_neo_h"
+            android:text="정찬효"
+            android:textColor="@color/materialDarkBlack"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/apple_sd_gothic_neo_r"
+            android:text="내 정보 보기"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_box"
+            android:backgroundTint="@color/tossBlue"
+            android:fontFamily="@font/apple_sd_gothic_neo_h"
+            android:text="송금"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/materialGray4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    (뷰 타입)_(위치)_(기능)-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+
+        <TextView
+            android:id="@+id/txt_main_account_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/apple_sd_gothic_neo_h"
+            android:text="계좌"
+            android:textColor="@color/materialDarkBlack"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_main_money_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/apple_sd_gothic_neo_r"
+            android:text="700000원"
+            android:textColor="@color/materialDarkBlack"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_main_account_title"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toTopOf="@+id/txt_main_account_title" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_main_account_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_main_account_title" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/img_main_bank1"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/toss2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_main_account_title" />
+
+        <TextView
+            android:id="@+id/txt_main_account_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/apple_sd_gothic_neo_r"
+            android:text="토스머니"
+            android:textColor="@color/materialGray7"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_main_account_money"
+            app:layout_constraintStart_toEndOf="@+id/img_main_bank1"
+            app:layout_constraintTop_toTopOf="@+id/img_main_bank1"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:textColor="@color/materialDarkBlack"
+            android:textSize="16sp"
+            android:id="@+id/txt_main_account_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/apple_sd_gothic_neo_h"
+            android:text="100원"
+            app:layout_constraintBottom_toBottomOf="@+id/img_main_bank1"
+            app:layout_constraintStart_toStartOf="@+id/txt_main_account_name"
+            app:layout_constraintTop_toBottomOf="@+id/txt_main_account_name" />
+
+        <Button
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_box"
+            android:backgroundTint="@color/materialGray2"
+            android:fontFamily="@font/apple_sd_gothic_neo_h"
+            android:text="송금"
+            android:textColor="@color/materialGray7"
+            app:layout_constraintBottom_toBottomOf="@+id/img_main_bank1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img_main_bank1" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_marginTop="24dp"
+            android:id="@+id/img_main_bank2"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:src="@drawable/toss2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_main_bank1" />
+
+        <TextView
+            android:id="@+id/txt_main_account_name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="@font/apple_sd_gothic_neo_r"
+            android:text="탈선린 예금통장"
+            android:textColor="@color/materialGray7"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/txt_main_account_money2"
+            app:layout_constraintStart_toEndOf="@+id/img_main_bank2"
+            app:layout_constraintTop_toTopOf="@+id/img_main_bank2"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:textColor="@color/materialDarkBlack"
+            android:textSize="16sp"
+            android:id="@+id/txt_main_account_money2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/apple_sd_gothic_neo_h"
+            android:text="100000원"
+            app:layout_constraintBottom_toBottomOf="@+id/img_main_bank2"
+            app:layout_constraintStart_toStartOf="@+id/txt_main_account_name2"
+            app:layout_constraintTop_toBottomOf="@+id/txt_main_account_name2" />
+
+        <Button
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_box"
+            android:backgroundTint="@color/materialGray2"
+            android:fontFamily="@font/apple_sd_gothic_neo_h"
+            android:text="송금"
+            android:textColor="@color/materialGray7"
+            app:layout_constraintBottom_toBottomOf="@+id/img_main_bank2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img_main_bank2" />
+
+        <View
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/materialGray4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_main_bank2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
