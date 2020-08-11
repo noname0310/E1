@@ -3,10 +3,14 @@ package com.example.e2;
 public class UserModel {
     private String name;
     private String email;
+    private String time;
 
-    public UserModel(String name, String email) {
+    public UserModel() {}
+
+    public UserModel(String name, String email, String time) {
         this.name = name;
         this.email = email;
+        this.time = time;
     }
 
     public String getName() {
@@ -23,5 +27,13 @@ public class UserModel {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

@@ -7,7 +7,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.WindowManager;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class SplishActivity extends AppCompatActivity {
+
+    private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +26,10 @@ public class SplishActivity extends AppCompatActivity {
     }
 
     private void handeledFunc() {
-        startActivity(new Intent(SplishActivity.this, login.class));
+        if (firebaseAuth.getCurrentUser() != null && UserCache.getUser(this) != null) {
+            startActivity(new Intent(SplishActivity.this, MainActivity.class));
+        } else
+            startActivity(new Intent(SplishActivity.this, login.class));
         finish();
     }
 }

@@ -9,8 +9,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.e2.databinding.ActivityLoginBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class login extends AppCompatActivity {
+
+    private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
+    private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
 
     private ActivityLoginBinding Binding;
 
@@ -30,6 +35,26 @@ public class login extends AppCompatActivity {
     }
 
     private void login(String email, String pw) {
-        Toast.makeText(this, String.format("{0} {1}", email, pw), Toast.LENGTH_SHORT).show();
+
+        if (email.isEmpty() || pw.isEmpty()) {
+            Toast.makeText(this, "빈칸을 입력해주세요", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        firebaseFirestore
+                .collection("users")
+                .document(email)
+                .get()
+                .addOnSuccessListener(doc -> {
+                    firebaseAuth
+                            .signInWithEmailAndPassword(email, pw)
+                            .addOnSuccessListener(runnable -> {
+                                UserCache.setUser(this, doc.toObject(UserModel.class));
+                                startActivity(new Intent(login.this, MainActivity.class));
+                                finish();
+                            })
+                            .addOnFailureListener(e -> Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show());
+                })
+                .addOnFailureListener(e -> Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show());
     }
 }

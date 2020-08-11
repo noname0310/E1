@@ -11,6 +11,10 @@ import com.example.e2.databinding.ActivityRegisterBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class register extends AppCompatActivity {
 
     private FirebaseFirestore firebaseFirestore = FirebaseFirestore.getInstance();
@@ -41,14 +45,20 @@ public class register extends AppCompatActivity {
         firebaseFirestore
                 .collection("users")
                 .document(email)
-                .set(new UserModel(name, email))
+                .set(new UserModel(name, email, getTIme()))
                 .addOnSuccessListener(runnable -> {
                     firebaseAuth
                             .createUserWithEmailAndPassword(email, pw)
                             .addOnSuccessListener(runnable1 -> {
-                                Toast.makeText(this, "완료", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, "가입됨", Toast.LENGTH_SHORT).show();
                                 finish();
-                            });
-                });
+                            })
+                            .addOnFailureListener(e -> Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show());
+                })
+                .addOnFailureListener(e -> Toast.makeText(this, e.getLocalizedMessage(), Toast.LENGTH_SHORT).show());
+    }
+
+    private String getTIme() {
+        return new SimpleDateFormat("yyyy/MM/dd hh:mm aa", Locale.ENGLISH).format(new Date());
     }
 }

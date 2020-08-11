@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/ic_baseline_add_box_24"
+        android:id="@+id/action_1"
+        android:title="Memo"/>
+    <item
+        android:icon="@drawable/ic_baseline_chat_24"
+        android:id="@+id/action_2"
+        android:title="Chat"/>
+    <item
+        android:icon="@drawable/ic_baseline_more_horiz_24"
+        android:id="@+id/action_3"
+        android:title="More"/>
+</menu>
