@@ -3,20 +3,67 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="user"
+            type="com.example.e2.UserModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="24dp">
 
         <TextView
+            app:layout_constrainedWidth="true"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:id="@+id/txt_more_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="더보기"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@{user.name, default = `Username`}"
+            android:textSize="28sp"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toTopOf="@+id/txt_more_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            android:id="@+id/txt_more_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.email + '\n' + user.time, default = `user info\n0000/00/00 00:00 XX`}"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_more_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_more_name" />
+
+        <Button
+            android:id="@+id/btn_more_delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="delete account"
+            app:layout_constraintBottom_toTopOf="@+id/btn_more_reset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_more_reset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="reset password"
+            app:layout_constraintBottom_toTopOf="@+id/btn_more_logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/btn_more_logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="logout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
