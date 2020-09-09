@@ -5,10 +5,19 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:ambientShadowAlpha">0.05</item>
+        <item name="android:spotShadowAlpha">0.05</item>
+    </style>
+
+    <style name="titleBarTextApparence" parent="android:TextAppearance">
+        <item name="android:fontFamily">@font/apple_sd_gothic_neo_h</item>
+        <item nemw="android:textsSize">24sp</item>
     </style>
 
     <style name="BottomNavigationView" parent="Theme.AppCompat.Light">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="android:colorForeground">@android:color/white</item>
+        <item name="android:fontFamily">@font/apple_sd_gothic_neo_h</item>
+        <item nemw="android:textsSize">24sp</item>
     </style>
 </resources>

@@ -3,13 +3,13 @@
     <item
         android:icon="@drawable/ic_baseline_add_box_24"
         android:id="@+id/action_1"
-        android:title="Memo"/>
+        android:title="메모"/>
     <item
         android:icon="@drawable/ic_baseline_chat_24"
         android:id="@+id/action_2"
-        android:title="Chat"/>
+        android:title="채팅"/>
     <item
         android:icon="@drawable/ic_baseline_more_horiz_24"
         android:id="@+id/action_3"
-        android:title="More"/>
+        android:title="더보기"/>
 </menu>
